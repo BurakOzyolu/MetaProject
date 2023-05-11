@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public bool canWin;
     public static bool canMove = true;
     public static int countWin = 5; 
+    public static int level = 1;
 
     // Awake : Starttan once calisir. Genelde sahne baslatma ve referans alma islemleri icin kullanilir. 
     private void Awake()

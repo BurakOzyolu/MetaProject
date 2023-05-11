@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) 
         {
             Destroy(collision.gameObject); // Karakterimizi yok et. 
+            Movement.Cancel(); // Karakter olunce canDash cancel'i calistiyoruz
             playerHealth.Lives(); // Karakterimizin canini dusurmek icin playerHealth scriptinden Lives metodunu calistir.
             Instantiate(playerHitParticle, transform.position, Quaternion.identity); //Mermi karaktere carpigi zaman kan efekti calisir
             Instantiate(playerDeathParticle, transform.position, Quaternion.identity); //Player oldukten sonra bu efekti olusturuyoruz

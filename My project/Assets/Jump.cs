@@ -9,8 +9,8 @@ public class Jump : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private Transform feetPos;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float gravityScale;
-    [SerializeField] private float fallGravityScale;
+    public static float gravityScale =1;
+    public static float fallGravityScale = 10;
     private SoundManager soundManager;
 
     // Karakterimizin ziplamasini saglamak icin rigidBody2D, ziplama sesi cikarabilmesi icin ise SoundManager'i cekiyoruz.
@@ -45,6 +45,10 @@ public class Jump : MonoBehaviour
     }
     void JumpAction()
     {
+        if (Movement.isDashing)
+        {
+            return;
+        }
         if (Input.GetButtonDown("Jump") && IsGrounded() && LevelManager.canMove)
         {
             // rigidBodymize kuvvet uygulayarak ziplama saglayabiliyoruz. .AddForce(1,2)
